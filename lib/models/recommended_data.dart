@@ -1,19 +1,39 @@
 class recommendedData{
   List recommended = [
     {
-      "recommendedImage": "images/beach.jp",
+      "image": "images/beach.jpg",
+      "title": "Hawaii Beach",
     },
 
     {
-      "recommendedImage": "images/beach2.jpg",
+      "image": "images/beach2.jpg",
+      "title": "Hawaii Beach",
     },
 
     {
-      "recommendedImage": "images/forest.jpeg",
+      "image": "images/forest.jpeg",
+      "title": "Hawaii Beach",
     },
 
     {
-      "recommendedImage": "images/forest2.jpg",
+      "image": "images/forest2.jpg",
+      "title": "Hawaii Beach",
+    },
+    {
+      "image": "images/hills.jpeg",
+      "title": "Hawaii Beach",
+    },
+    {
+      "image": "images/hills2.jpeg",
+      "title": "Hawaii Beach",
+    },
+    {
+      "image": "images/hotel1.jpg",
+      "title": "Hawaii Beach",
+    },
+    {
+      "image": "images/hotel2.jpeg",
+      "title": "Hawaii Beach",
     },
 
 

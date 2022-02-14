@@ -3,6 +3,7 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:traveller/models/recommended_data.dart';
 import 'package:traveller/widgets/TextsWidgets/largerTexts.dart';
 import 'package:traveller/widgets/TextsWidgets/smallerTexts.dart';
+import 'package:traveller/widgets/buttonWidget.dart';
 import 'package:traveller/widgets/cards/categorycard.dart';
 import 'package:traveller/widgets/cards/recommended_card.dart';
 
@@ -75,18 +76,27 @@ class HomePage extends StatelessWidget {
                     color: Colors.blue,
                     child: Center(
                       child: Column(
-                        children: const [
-                          SizedBox(height: 16.0),
-                          LargerTexts(
+                        children: [
+                          const SizedBox(height: 16.0),
+                          const LargerTexts(
                               typedText: "Let's Discover Around",
                               textColor: Colors.white),
-                          SizedBox(height: 8.0),
-                          SmallerTexts(
+                          const SizedBox(height: 8.0),
+                          const SmallerTexts(
                             typedText: 'Find the best place to visit',
                             textColor: Colors.white,
                           ),
-                          SizedBox(height: 8.0),
-                          //ButtonWidget();
+                          const SizedBox(height: 8.0),
+                          ButtonTheme(
+                            minWidth: 120.0,
+                            child: ButtonWidget(buttonText: 'Start now',
+                            onPressed: () {  },
+                            shapeBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            buttonColor: Colors.white,
+                          ),)
+
                         ],
                       ),
                     )),
@@ -137,22 +147,32 @@ class HomePage extends StatelessWidget {
                 child:
                     LargerTexts(typedText: "Recommended", textColor: Colors.black),
               ),
+              const SizedBox(height: 8.0,),
 
-              //horizontal list of recommended places
-              // ListView(
-              //   scrollDirection: Axis.horizontal,
-              //   shrinkWrap: true,
-              //   physics: const NeverScrollableScrollPhysics(),
-              //   children: recommendedData().recommended.map((e) {
-              //     return buildLargeCard(
-              //         e['recommendedImage'],
-              //        );
-              //
-              //   }).toList(),
-              // )
+              SizedBox(
+                height: 200,
+                 child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: recommendedData().recommended.map((e) {
+                      return buildCard(
+                        e['image'],
+                        e['title'],
+                      );
+                    }).toList(),
+                  )
+
+              )//horizontal list of recommended places
+
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
+
+
+      ],
+
       ),
     );
   }

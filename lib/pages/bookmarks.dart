@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:traveller/pages/tabBarPages/reserveslist.dart';
+import 'package:traveller/pages/tabBarPages/visitedlist.dart';
 import 'package:traveller/widgets/TextsWidgets/largerTexts.dart';
+
+import 'tabBarPages/bookmarklists.dart';
+import 'tabBarPages/labeledbookmark.dart';
 
 class UserBookmarks extends StatefulWidget {
   const UserBookmarks({Key? key}) : super(key: key);
@@ -32,6 +37,7 @@ class _UserBookmarksState extends State<UserBookmarks> {
             bottom: const TabBar(
                 unselectedLabelColor: Colors.black45,
                 labelColor: Colors.blue,
+                indicatorSize: TabBarIndicatorSize.label,
                 tabs: [
               Tab(
                 text: "Lists",
@@ -47,12 +53,14 @@ class _UserBookmarksState extends State<UserBookmarks> {
               ),
             ]),
           ),
-          body: Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 48.0, 16.0, 16.0),
-            child: SingleChildScrollView(
-              child: Container(),
-            ),
-          ),
+          body: const TabBarView(
+            children: [
+              BookmarkLists(),
+              LabelledBookmarks(),
+              ReservesList(),
+              VisitedList(),
+            ],
+          )
         ),
       ),
     );

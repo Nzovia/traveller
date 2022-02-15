@@ -17,8 +17,8 @@ class _PageNavigatorState extends State<PageNavigator> {
   int currentIndex = 0; // forindexing the selected item
   List navigatedScreen = [
     const HomePage(),
-    const UserBookmarks(),
     const PlaceDetails(),
+    const UserBookmarks(),
     const UserDetails(),
   ];
   @override

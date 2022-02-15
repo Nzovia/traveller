@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:traveller/pagenavigator.dart';
 import 'pages/landingpage.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage( ),
+      home: const PageNavigator( ),
     );
   }
 }

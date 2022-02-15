@@ -7,9 +7,14 @@ import 'package:traveller/widgets/buttonWidget.dart';
 import 'package:traveller/widgets/cards/categorycard.dart';
 import 'package:traveller/widgets/cards/recommended_card.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -90,12 +95,12 @@ class HomePage extends StatelessWidget {
                           ButtonTheme(
                             minWidth: 120.0,
                             child: ButtonWidget(buttonText: 'Start now',
-                            onPressed: () {  },
-                            shapeBorder: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            buttonColor: Colors.white,
-                          ),)
+                              onPressed: () {  },
+                              shapeBorder: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              buttonColor: Colors.white,
+                            ),)
 
                         ],
                       ),
@@ -107,7 +112,7 @@ class HomePage extends StatelessWidget {
               const Align(
                 alignment: Alignment.bottomLeft,
                 child:
-                    LargerTexts(typedText: "Category", textColor: Colors.black),
+                LargerTexts(typedText: "Category", textColor: Colors.black),
               ),
 
               const SizedBox(
@@ -145,13 +150,13 @@ class HomePage extends StatelessWidget {
               const Align(
                 alignment: Alignment.bottomLeft,
                 child:
-                    LargerTexts(typedText: "Recommended", textColor: Colors.black),
+                LargerTexts(typedText: "Recommended", textColor: Colors.black),
               ),
               const SizedBox(height: 8.0,),
 
               SizedBox(
-                height: 200,
-                 child: ListView(
+                  height: 200,
+                  child: ListView(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     children: recommendedData().recommended.map((e) {
@@ -168,17 +173,9 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
 
-
-      ],
-
-      ),
     );
   }
-
-//A method to build category cards
-// Widget categoryCards(category, categoryIcon, iconColor) {
-//   return CategoryCard(category: category, categoryIcon: categoryIcon, iconColor: iconColor);
-// }
 }
+
+

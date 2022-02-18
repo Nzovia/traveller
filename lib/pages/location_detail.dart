@@ -17,8 +17,9 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   late GoogleMapController _googleMapController;
 
   //origin and destination marker declaration
-  late Marker _origin;
-  late Marker _destination;
+   Marker? _origin;
+   Marker? _destination;
+
 
   //dispose the controller on the dispose method
   @override
@@ -30,6 +31,14 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: false,
+        backgroundColor: Colors.white,
+        title: const Text(
+            "Choose Destination", style: TextStyle(color: Colors.blueGrey),
+        ),
+      ),
       //Padding(padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
       body: GoogleMap(
         myLocationButtonEnabled: false,
@@ -39,8 +48,8 @@ class _PlaceDetailsState extends State<PlaceDetails> {
 
         //marker is a Google maps parameter
         markers: {
-          if(_origin != null) _origin,
-          if(_destination != null) _destination
+          if(_origin != null) _origin!,
+          if(_destination != null) _destination!
         },
 
         //long pressed function to generate markers
@@ -58,7 +67,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
     );
   }
 
-  void _addMarker(LatLng argument) {
+  void _addMarker(LatLng position) {
     if(_origin == null || (_origin != null && _destination != null)){
       //origin is not set OR Origin/Destination are both Set
 
@@ -69,7 +78,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
         infoWindow: const InfoWindow(title: 'Origin'),
           icon:
             BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-        //  position: pos,
+        position: position,
         );
 
         //Reset destination
@@ -84,7 +93,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
             markerId: const MarkerId('destination'),
         infoWindow: const InfoWindow(title:  'Destination'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-          //position: pos,
+          position: position,
         );
       });
     }

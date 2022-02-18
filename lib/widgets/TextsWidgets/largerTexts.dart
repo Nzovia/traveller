@@ -16,7 +16,7 @@ class LargerTexts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Text(typedText,
-        style: TextStyle( fontWeight: FontWeight.w500, fontSize: 18, color: textColor),
+        style: TextStyle( fontWeight: FontWeight.w500, fontSize: 16, color: textColor),
         
       ),
     );

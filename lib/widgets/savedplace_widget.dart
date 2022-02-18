@@ -33,12 +33,18 @@ Widget buildSavedPlace(
                         fontSize: 16,
                         color: Colors.black),
                   ),
-                  const Icon(
-                    Icons.more_vert,
-                    size: 20,
-                    color: Colors.black,
-                  ),
+                  GestureDetector(
+                    onTap: (){
+                      //popupmenu();
+                    },
+                    child:const Icon(
+                      Icons.more_vert,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                  )
                 ])),
+            const SizedBox(height: 8.0,),
             Row(
               children: [
                 RichText(
@@ -84,3 +90,4 @@ Widget buildSavedPlace(
         ),
       ),
     );
+

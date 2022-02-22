@@ -10,7 +10,7 @@ class LabelledBookmarks extends StatefulWidget {
 class _LabelledBookmarksState extends State<LabelledBookmarks> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Labelled Lists", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: Colors.black),),
     );
   }

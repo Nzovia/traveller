@@ -24,7 +24,7 @@ class _BookmarkListsState extends State<BookmarkLists> {
             children: savedPlaces().savedplaces.map((e){
               return buildSavedPlace(
                   e['placeName'],
-                  e['placeImage'],
+                  e['imageUrl'],
                   e['rating'],
                   e['category'],
                   );
@@ -38,5 +38,13 @@ class _BookmarkListsState extends State<BookmarkLists> {
       ),
       );
 
+  }
+
+  Widget buildSavedPlace(placeName,imageUrl, rating, category) {
+    return SavedPlacesWidget(
+      placeName: placeName,
+      imageUrl: imageUrl,
+      rating: rating,
+      category: category,);
   }
 }

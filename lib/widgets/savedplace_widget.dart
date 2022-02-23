@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:traveller/widgets/buttonWidget.dart';
 
 class SavedPlacesWidget extends StatelessWidget {
   final String placeName, rating, category, imageUrl;
@@ -54,13 +56,56 @@ class SavedPlacesWidget extends StatelessWidget {
                                   child:Container(
                                       color: Colors.white,
                                       height: 150,
-                                     child: Padding(padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+                                     child: Padding(padding: const EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 0.0),
                                           child:Column(
-                                            children: [
-                                              Text("Hello Nicholas"),
-                                              Text("Hello Nzovia"),
-                                              Text("Hello Maundu"),
-                                              Text("Hello Mueni"),
+                                            children:  [
+                                              const SizedBox(
+                                                height: 16,
+                                                child:ListTile(
+                                                  leading: Icon(Icons.share, size: 18,),
+                                                  title: Text("Share with others",
+                                                    style: TextStyle(
+                                                      fontSize: 14.0,
+                                                    ),
+                                                  ),
+                                                  //onTap: () =>{},
+                                                ),
+                                              ),
+                                              const SizedBox(height: 12.0,),
+                                              const SizedBox(
+                                                height: 16,
+                                                child:ListTile(
+                                                  leading: Icon(Icons.star_rate, size: 18,),
+                                                  title: Text("rate the destination", style: TextStyle(
+                                                    fontSize: 14.0,
+                                                  ),
+                                                  ),
+                                                  //onTap: () =>{},
+                                                ),
+                                              ),
+                                              const SizedBox(height: 12.0,),
+                                              const SizedBox(
+                                                height: 16,
+                                                child:ListTile(
+                                                  leading: Icon(Icons.delete_forever, size: 18,),
+                                                  title: Text("i don't want to see this", style: TextStyle(
+                                                    fontSize: 14.0,
+                                                  ),
+                                                  ),
+                                                  //onTap: () =>{},
+                                                ),
+                                              ),
+                                              const SizedBox(height: 16.0,),
+
+                                              ButtonTheme(
+                                                minWidth: 280.0,
+                                                child: ButtonWidget(buttonText: 'Cancel',
+                                                  onPressed: () {  },
+                                                  shapeBorder: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(10.0),
+                                                  ),
+                                                  buttonColor: Colors.white,
+                                                ),)
                                             ],
                                           )
                                       )
@@ -68,9 +113,8 @@ class SavedPlacesWidget extends StatelessWidget {
                                   ),
                                 ),
                                 isDismissible: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)
-                                )
+                                elevation: 1.0,
+                                enableDrag: true,
                               );
                               //myBottomSheet(context);
                             },

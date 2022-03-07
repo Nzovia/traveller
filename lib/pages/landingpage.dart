@@ -6,6 +6,7 @@ import 'package:traveller/widgets/TextsWidgets/smallerTexts.dart';
 import 'package:traveller/widgets/buttonWidget.dart';
 import 'package:traveller/widgets/cards/categorycard.dart';
 import 'package:traveller/widgets/cards/recommended_card.dart';
+import 'package:traveller/widgets/navdrawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,11 +34,15 @@ class _HomePageState extends State<HomePage> {
                         width: 50,
                         height: 50,
                         color: Colors.grey,
-                        child: const Icon(
-                          Icons.menu,
-                          size: 24,
-                          color: Colors.black,
-                        ),
+                        child:GestureDetector(
+                          child: const Icon(
+                            Icons.menu,
+                            size: 24,
+                            color: Colors.black,
+                          ),
+                          onTap: () => const NavDrawer(),
+                        )
+
                       )),
                   const SizedBox(
                     width: 180,

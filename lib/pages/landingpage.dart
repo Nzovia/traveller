@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:traveller/models/recommended_data.dart';
 import 'package:traveller/widgets/TextsWidgets/largerTexts.dart';
 import 'package:traveller/widgets/TextsWidgets/smallerTexts.dart';
@@ -7,6 +6,8 @@ import 'package:traveller/widgets/buttonWidget.dart';
 import 'package:traveller/widgets/cards/categorycard.dart';
 import 'package:traveller/widgets/cards/recommended_card.dart';
 import 'package:traveller/widgets/navdrawer.dart';
+
+import 'categoryPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,22 +28,21 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(15.0),
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                        color: Colors.grey,
-                        child:GestureDetector(
+                  GestureDetector(
+                    onTap: () => const NavDrawer(),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: Container(
+                          width: 50,
+                          height: 50,
+                          color: Colors.grey,
                           child: const Icon(
                             Icons.menu,
                             size: 24,
                             color: Colors.black,
                           ),
-                          onTap: () => const NavDrawer(),
-                        )
-
-                      )),
+                        )),
+                  ),
                   const SizedBox(
                     width: 180,
                     height: 40,
@@ -99,14 +98,15 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(height: 8.0),
                           ButtonTheme(
                             minWidth: 120.0,
-                            child: ButtonWidget(buttonText: 'Start now',
-                              onPressed: () {  },
+                            child: ButtonWidget(
+                              buttonText: 'Start now',
+                              onPressed: () {},
                               shapeBorder: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               buttonColor: Colors.white,
-                            ),)
-
+                            ),
+                          )
                         ],
                       ),
                     )),
@@ -117,33 +117,43 @@ class _HomePageState extends State<HomePage> {
               const Align(
                 alignment: Alignment.bottomLeft,
                 child:
-                LargerTexts(typedText: "Category", textColor: Colors.black),
+                    LargerTexts(typedText: "Category", textColor: Colors.black),
               ),
 
               const SizedBox(
                 height: 8.0,
               ),
+
               //Row to show categories
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  CategoryCard(
-                      category: "All",
-                      categoryIcon: Icons.dashboard,
-                      iconColor: Colors.blue),
-                  CategoryCard(
+                children:  [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const CategoryPage()),
+                      );
+                    },
+                    child: const CategoryCard(
+                        category: "All",
+                        categoryIcon: Icons.dashboard,
+                        iconColor: Colors.blue),
+                  ),
+
+                  const CategoryCard(
                       category: "Hill",
                       categoryIcon: Icons.downhill_skiing,
                       iconColor: Colors.green),
-                  CategoryCard(
+                  const CategoryCard(
                       category: "Beach",
                       categoryIcon: Icons.beach_access,
                       iconColor: Colors.orange),
-                  CategoryCard(
+                  const CategoryCard(
                       category: "Hotel",
                       categoryIcon: Icons.hotel,
                       iconColor: Colors.lightBlue),
-                  CategoryCard(
+                  const CategoryCard(
                       category: "Nature",
                       categoryIcon: Icons.tour,
                       iconColor: Colors.grey),
@@ -154,10 +164,12 @@ class _HomePageState extends State<HomePage> {
               ),
               const Align(
                 alignment: Alignment.bottomLeft,
-                child:
-                LargerTexts(typedText: "Recommended", textColor: Colors.black),
+                child: LargerTexts(
+                    typedText: "Recommended", textColor: Colors.black),
               ),
-              const SizedBox(height: 8.0,),
+              const SizedBox(
+                height: 8.0,
+              ),
 
               SizedBox(
                   height: 200,
@@ -170,17 +182,11 @@ class _HomePageState extends State<HomePage> {
                         e['title'],
                       );
                     }).toList(),
-                  )
-
-              )//horizontal list of recommended places
-
+                  )) //horizontal list of recommended places
             ],
           ),
         ),
       ),
-
     );
   }
 }
-
-

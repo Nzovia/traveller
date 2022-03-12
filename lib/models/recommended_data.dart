@@ -2,38 +2,38 @@ class recommendedData{
   List recommended = [
     {
       "image": "images/beach.jpg",
-      "title": "Hawaii Beach",
+      "title": "Saudi Beach",
     },
 
     {
       "image": "images/beach2.jpg",
-      "title": "Hawaii Beach",
+      "title": "La Digue",
     },
 
     {
       "image": "images/forest.jpeg",
-      "title": "Hawaii Beach",
+      "title": "DainTre Forest",
     },
 
     {
       "image": "images/forest2.jpg",
-      "title": "Hawaii Beach",
+      "title": "Black Forest",
     },
     {
       "image": "images/hills.jpeg",
-      "title": "Hawaii Beach",
+      "title": "Palni Hills",
     },
     {
       "image": "images/hills2.jpeg",
-      "title": "Hawaii Beach",
+      "title": "Velikonda",
     },
     {
       "image": "images/hotel1.jpg",
-      "title": "Hawaii Beach",
+      "title": "Kilifi Resort",
     },
     {
       "image": "images/hotel2.jpeg",
-      "title": "Hawaii Beach",
+      "title": "Serena Hotel",
     },
 
 

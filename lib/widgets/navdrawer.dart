@@ -8,6 +8,32 @@ class NavDrawer extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Column(
+          children: [
+            const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child:Text("Actions")),
+            ListTile(
+              title: const Text("profile"),
+              onTap:(){
+
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text("Settings"),
+              onTap:(){
+
+              },
+            ),
+            ListTile(
+              title: const Text("LogOut"),
+              onTap:(){
+
+              },
+            ),
+          ],
 
 
         ),

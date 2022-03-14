@@ -36,17 +36,5 @@ class savedPlaces {
       'rating': '4.5',
       'category': ' Hills & Ranges',
     },
-    {
-      'placeName': 'Kilifi Resort, Kenya',
-      'imageUrl': 'images/hotel1.jpg',
-      'rating': '4.5',
-      'category': ' Hotel & Resorts',
-    },
-    {
-      'placeName': 'Serena Hotel, Nairobi',
-      'imageUrl': 'images/hotel2.jpeg',
-      'rating': '4.5',
-      'category': ' Hotel & Resorts',
-    },
   ];
 }

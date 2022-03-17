@@ -1,17 +1,33 @@
 import 'package:flutter/material.dart';
 
-class TextInput extends StatefulWidget {
-  const TextInput({Key? key}) : super(key: key);
+class EnterText extends StatelessWidget {
+  final String hintText;
+  final String labelText;
+  // final String enterText;
+  const EnterText({Key? key,
+       // required this.enterText,
+       required this.hintText,
+       required this.labelText}) :
+        super(key: key,
 
-  @override
-  _TextInputState createState() => _TextInputState();
-}
+      );
 
-class _TextInputState extends State<TextInput> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: TextField(
+    return Scaffold(
+      body: Container(
+        child:TextField(
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            filled: true,
+            fillColor: Colors.white,
+            labelText: labelText,
+            hintText: hintText,
+            contentPadding: const EdgeInsets.fromLTRB(32,16,32,16),
+
+
+          ),
+        ),
 
       ),
     );

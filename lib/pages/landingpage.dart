@@ -8,6 +8,7 @@ import 'package:traveller/widgets/cards/recommended_card.dart';
 import 'package:traveller/widgets/navdrawer.dart';
 
 import 'categoryPage.dart';
+import 'create_account.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -100,7 +101,12 @@ class _HomePageState extends State<HomePage> {
                             minWidth: 120.0,
                             child: ButtonWidget(
                               buttonText: 'Start now',
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(builder: (context) => const CreateAccount()),
+                                );
+                                
+                              },
                               shapeBorder: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
